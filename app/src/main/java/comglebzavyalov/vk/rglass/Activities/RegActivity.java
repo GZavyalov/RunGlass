@@ -30,7 +30,6 @@ public class RegActivity extends AppCompatActivity {
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPass = (EditText) findViewById(R.id.editTextPass);
-
         mAuth = FirebaseAuth.getInstance();
 
 
