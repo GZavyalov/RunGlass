@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="comglebzavyalov.vk.rglass.Activities.LoginingActivity">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/textInputLayout1"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/textInputLayout2">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/editTextEmail"
+            android:hint="Email: "
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
+            android:inputType="textEmailAddress"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:textSize="18sp"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_above="@+id/textInputLayout1"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/textInputLayout1">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/editTextPass"
+            android:hint="Password: "
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
+            android:inputType="textPassword"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:textSize="18sp"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Войти"
+        android:id="@+id/buttonLog"
+        android:onClick="clickLogin"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textColor="#FFFFFF"
+        android:background="@color/colorPrimary"/>
+
+</LinearLayout>

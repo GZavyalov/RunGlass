@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/run_navigation"
+        android:title="Бег"
+        android:icon="@drawable/ic_directions_run_black_24dp"/>
+
+    <item
+        android:id="@+id/stat_navigation"
+        android:title="Статистика"
+        android:icon="@drawable/ic_equalizer_black_24dp"></item>
+    <item
+        android:id="@+id/train_navigation"
+        android:title="Тренировки"
+        android:icon="@drawable/ic_class_black_24dp">
+    </item>
+
+
+
+
+</menu>
