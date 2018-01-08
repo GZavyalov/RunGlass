@@ -53,6 +53,7 @@ public class RegActivity extends AppCompatActivity {
                             Toast.makeText(RegActivity.this, "Regestration failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
+                        //---
 
                         // ...
                     }
