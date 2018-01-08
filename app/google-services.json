@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "554301179710",
+    "firebase_url": "https://rglass-d3442.firebaseio.com",
+    "project_id": "rglass-d3442",
+    "storage_bucket": "rglass-d3442.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554301179710:android:675fbb6bc65fd3ee",
+        "android_client_info": {
+          "package_name": "comglebzavyalov.vk.rglass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554301179710-6tl3oj4rfnl6tu2el9bobvkm9ndgltsg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "comglebzavyalov.vk.rglass",
+            "certificate_hash": "56f2d7cf0daf6c0410b4c91fa03ae5693047d336"
+          }
+        },
+        {
+          "client_id": "554301179710-a5q7c957fvq5jck160n748h20klr6o0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4WULbtQexJDqVLG-hEPGyYp8HWvxzmpE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554301179710-a5q7c957fvq5jck160n748h20klr6o0g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
