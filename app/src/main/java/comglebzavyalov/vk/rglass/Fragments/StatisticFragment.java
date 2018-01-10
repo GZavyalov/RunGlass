@@ -1,12 +1,14 @@
 package comglebzavyalov.vk.rglass.Fragments;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -20,6 +22,8 @@ public class StatisticFragment extends Fragment {
     ListView listView;
     ArrayList<TrainModel> list = new ArrayList<TrainModel>();
 
+    TextView textViewTitleStat;
+
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,6 +32,13 @@ public class StatisticFragment extends Fragment {
 
 
         list.clear();
+
+        Typeface typefaceReg = Typeface.createFromAsset(getContext().getAssets(),"fonts/SSFDReg.ttf");
+        Typeface typefaceBold = Typeface.createFromAsset(getContext().getAssets(), "fonts/SSFDBold.ttf");
+
+        textViewTitleStat = (TextView) view.findViewById(R.id.textViewTitleStat);
+
+        textViewTitleStat.setTypeface(typefaceBold);
 
 
 

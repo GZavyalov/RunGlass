@@ -18,24 +18,18 @@ import com.google.firebase.auth.FirebaseUser;
 import comglebzavyalov.vk.rglass.R;
 
 public class RegActivity extends AppCompatActivity {
-
     EditText editTextEmail, editTextPass;
     private FirebaseAuth mAuth;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
-
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPass = (EditText) findViewById(R.id.editTextPass);
         mAuth = FirebaseAuth.getInstance();
 
 
     }
-
-
     public void clickReg(View view){
 
         mAuth.createUserWithEmailAndPassword(editTextEmail.getText().toString(), editTextPass.getText().toString())

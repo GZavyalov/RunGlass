@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Статистика:"
         android:layout_marginLeft="17dp"
+        android:id="@+id/textViewTitleStat"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
