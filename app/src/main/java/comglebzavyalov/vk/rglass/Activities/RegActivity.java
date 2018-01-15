@@ -1,6 +1,8 @@
 package comglebzavyalov.vk.rglass.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +40,12 @@ public class RegActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("RGlass", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                            editor.putString("mUid", user.getUid());
+                            editor.apply();
 
                             Intent intent = new Intent(RegActivity.this, MainActivity.class);
                             startActivity(intent);

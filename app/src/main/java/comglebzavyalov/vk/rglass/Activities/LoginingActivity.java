@@ -1,6 +1,8 @@
 package comglebzavyalov.vk.rglass.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,6 +55,14 @@ public class LoginingActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(LoginingActivity.this, MainActivity.class);
                             startActivity(intent);
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("RGlass", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                            editor.putString("mUid", user.getUid());
+                            editor.apply();
+
+
                         } else {
 
                             Toast.makeText(LoginingActivity.this, "Email or password is incorrect!", Toast.LENGTH_SHORT).show();

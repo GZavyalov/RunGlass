@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-
+    android:background="@color/colorBackground"
     android:layout_height="match_parent"
     tools:context="comglebzavyalov.vk.rglass.Activities.MainActivity">
 
@@ -24,8 +24,9 @@
         android:layout_height="56dp"
         app:itemIconTint="@color/colorAccent"
         android:layout_alignParentBottom="true"
-        android:background="#FFFFFF"
-        app:itemTextColor="@color/colorPrimaryDark"
+        android:background="@color/colorBackground"
+        app:itemTextColor="#FFFFFF"
+
         app:menu="@menu/navigation" />
 
 

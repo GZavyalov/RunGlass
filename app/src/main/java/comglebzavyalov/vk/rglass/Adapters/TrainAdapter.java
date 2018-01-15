@@ -53,7 +53,7 @@ public class TrainAdapter extends ArrayAdapter<TrainModel> {
         }
 
 
-        textViewDate.setText(trainModel.date);
+        textViewDate.setText(trainModel.title + "\n" + trainModel.date);
 
         return view;
     }

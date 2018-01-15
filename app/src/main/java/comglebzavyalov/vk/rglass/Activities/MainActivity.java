@@ -161,17 +161,24 @@ public class MainActivity extends AppCompatActivity {
 
             switch (intent_mode){
                 case 1:{
-                    replace(runFragment);
+                    try {
+                        replace(runFragment);
+                    }catch (Exception ex){
+                    }
                     break;
                 }
 
                 case 2:{
-                    replace(statisticFragment);
+                    try {
+                        replace(statisticFragment);
+                    }catch (Exception ex){}
                     break;
                 }
 
                 case 3:{
-                    replace(trainFragments);
+                    try {
+                        replace(trainFragments);
+                    }catch (Exception ex){}
                     break;
                 }
             }
@@ -179,160 +186,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        connectFitness();
-    }
-
-
-    private void connectFitness() {
-        if (mClient == null){
-            mClient = new GoogleApiClient.Builder(this)
-                    .addApi(Fitness.SENSORS_API)
-                    .addApi(Fitness.HISTORY_API)
-                    .addScope(new Scope(Scopes.FITNESS_LOCATION_READ)) // GET STEP VALUES
-                    .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
-                                                @Override
-                                                public void onConnected(Bundle bundle) {
-                                                    Log.e(LOG_TAG, "Connected!!!");
-                                                    // Now you can make calls to the Fitness APIs.
-                                                    findFitnessDataSources();
-
-                                                }
-
-                                                @Override
-                                                public void onConnectionSuspended(int i) {
-                                                    // If your connection to the sensor gets lost at some point,
-                                                    // you'll be able to determine the reason and react to it here.
-                                                    if (i == GoogleApiClient.ConnectionCallbacks.CAUSE_NETWORK_LOST) {
-                                                        Log.i(LOG_TAG, "Connection lost.  Cause: Network Lost.");
-                                                    } else if (i
-                                                            == GoogleApiClient.ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED) {
-                                                        Log.i(LOG_TAG,
-                                                                "Connection lost.  Reason: Service Disconnected");
-                                                    }
-                                                }
-                                            }
-                    )
-                    .enableAutoManage(this, 0, new GoogleApiClient.OnConnectionFailedListener() {
-                        @Override
-                        public void onConnectionFailed(ConnectionResult result) {
-                            Log.e(LOG_TAG, "!_@@ERROR :: Google Play services connection failed. Cause: " + result.toString());
-                        }
-                    })
-                    .build();
-        }else{
-            findFitnessDataSources();
-        }
-
-    }
-
-
-    private void findFitnessDataSources() {
-        Fitness.SensorsApi.findDataSources(
-                mClient,
-                new DataSourcesRequest.Builder()
-                        .setDataTypes(DataType.TYPE_STEP_COUNT_DELTA)
-                        .setDataSourceTypes(DataSource.TYPE_DERIVED)
-                        .build())
-                .setResultCallback(new ResultCallback<DataSourcesResult>() {
-                    @Override
-                    public void onResult(DataSourcesResult dataSourcesResult) {
-                        Log.e(LOG_TAG, "Result: " + dataSourcesResult.getStatus().toString());
-                        for (DataSource dataSource : dataSourcesResult.getDataSources()) {
-                            Log.e(LOG_TAG, "Data source found: " + dataSource.toString());
-                            Log.e(TAG, "Data Source type: " + dataSource.getDataType().getName());
-
-                            //Let's register a listener to receive Activity data!
-                            if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA) && mListener == null) {
-                                Log.i(TAG, "Data source for TYPE_STEP_COUNT_DELTA found!  Registering.");
-                                Log.i(TAG, dataSource.toString());
-
-                                registerFitnessDataListener(dataSource, DataType.TYPE_STEP_COUNT_DELTA);
-                            }
-                        }
-                    }
-                });
-
-        final Handler handler = new Handler();
-
-
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-
-
-                    PendingResult<DailyTotalResult> result = Fitness.HistoryApi.readDailyTotal(mClient, DataType.TYPE_STEP_COUNT_DELTA);
-                    DailyTotalResult totalResult = result.await(30, TimeUnit.SECONDS);
-                    if (totalResult.getStatus().isSuccess()) {
-                        DataSet totalSet = totalResult.getTotal();
-                        total = totalSet.isEmpty()
-                                ? 0
-                                : totalSet.getDataPoints().get(0).getValue(Field.FIELD_STEPS).asInt();
-                    } else {
-                        Log.w(TAG, "There was a problem getting the step count.");
-                    }
-
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(), String.valueOf(total), Toast.LENGTH_SHORT).show();
-
-                        }
-                    });
-
-
-            }
-        };
-
-        Thread thread = new Thread(runnable);
-        thread.start();
 
 
 
-
-    }
-
-
-
-
-
-    private void registerFitnessDataListener(final DataSource dataSource, DataType dataType) {
-
-
-        // [START register_data_listener]
-        mListener = new OnDataPointListener() {
-            @Override
-            public void onDataPoint(DataPoint dataPoint) {
-                for (Field field : dataPoint.getDataType().getFields()) {
-                    Value val = dataPoint.getValue(field);
-                    Log.e(TAG, "Detected DataPoint field: " + field.getName());
-                    Log.e(TAG, "Detected DataPoint value: " + val);
-
-                }
-            }
-        };
-
-        Fitness.SensorsApi.add(
-                mClient,
-                new SensorRequest.Builder()
-                        .setDataSource(dataSource) // Optional but recommended for custom data sets.
-                        .setDataType(dataType) // Can't be omitted.
-                        .setSamplingRate(1, TimeUnit.SECONDS)
-                        .build(),
-                mListener).setResultCallback(new ResultCallback<Status>() {
-            @Override
-            public void onResult(Status status) {
-                if (status.isSuccess()) {
-                    Log.i(TAG, "Listener registered!");
-                } else {
-                    Log.i(TAG, "Listener not registered.");
-                }
-            }
-        });
-
-    }
 
 
     public void replace(Fragment newFragment){

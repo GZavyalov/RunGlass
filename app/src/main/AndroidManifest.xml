@@ -4,7 +4,13 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+
 
     <application
         android:allowBackup="true"
@@ -13,18 +19,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.LoginActivity">
+        <activity android:name=".Activities.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.StartRunActivity" />
-        <activity android:name=".Activities.LoginingActivity" />
-        <activity android:name=".Activities.RegActivity" />
-        <activity android:name=".Activities.NowRunningActivity"></activity>
+        <activity android:name=".Activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.LoginingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.RegActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.NowRunningActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <service android:name=".LocationClasses.LocationService"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
     </application>
 
 </manifest>

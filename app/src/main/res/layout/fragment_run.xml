@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     android:orientation="vertical">
 
     <TextView
@@ -9,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="Добрый день!"
         android:layout_marginLeft="17dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="20dp"
         android:id="@+id/textViewTitle"
         android:textStyle="bold"
@@ -35,8 +36,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
-                android:background="#F1F1F1"
+                android:background="@drawable/layout_background"
                 android:layout_marginRight="7dp"
+
                 android:layout_marginTop="15dp"
                 android:orientation="vertical">
 
@@ -44,9 +46,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Начните пробежку:"
-                    android:layout_marginLeft="11dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="12dp"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#FFFFFF"
                     android:id="@+id/textViewSubTitle1"
                     android:textSize="20sp"
                     />
@@ -55,8 +57,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="В «среду» вы пробежали 1.3 км за 15 минут"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="#597265"
+                    android:layout_marginLeft="23dp"
+                    android:textColor="#FFFFFF"
                     android:layout_marginTop="18dp"
                     android:textSize="16sp"
                     android:id="@+id/textViewDescrp1"
@@ -69,7 +71,7 @@
                     android:text="Начать"
                     android:layout_marginTop="17dp"
                     android:id="@+id/buttonGoingToStartRun"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/layout_button_corners"
                     android:textColor="#FFFFFF"
                     />
 
@@ -82,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
-                android:background="#F1F1F1"
+                android:background="@drawable/layout_background"
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="15dp"
                 android:orientation="vertical">
@@ -91,10 +93,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Советы:"
-                    android:layout_marginLeft="11dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="12dp"
                     android:id="@+id/textViewSubTitle2"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#FFFFFF"
 
                     android:textSize="20sp"
                     />
@@ -105,8 +107,8 @@
                     android:text="1) Не стоит делать ускорения с самого начала
 
 2) Для улучшения времени, стоит давать нагрузку своему организму по нарастающей"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="#597265"
+                    android:layout_marginLeft="23dp"
+                    android:textColor="#FFFFFF"
                     android:layout_marginTop="18dp"
                     android:textSize="16sp"
                     android:layout_marginRight="20dp"
@@ -119,7 +121,7 @@
                     android:text="Перейти к подсказкам"
                     android:layout_marginTop="17dp"
                     android:id="@+id/buttonShowPodscazki"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/layout_button_corners"
 
                     android:textColor="#FFFFFF"
                     />
